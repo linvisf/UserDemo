@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.userdemo.bean.BannerBean;
 import com.example.userdemo.bean.GankBean;
 import com.example.userdemo.bean.HttpResultBean;
 import com.example.userdemo.http.BaseAPI;
@@ -31,10 +32,26 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadData("Girl","Girl",1,10);
+//                loadData("Girl","Girl",1,10);
+                getBanner();
             }
         });
 
+    }
+
+    private void getBanner() {
+        Call<HttpResultBean<List<BannerBean>>> call = BaseAPI.getApiService().getBannersData();
+        call.enqueue(new Callback<HttpResultBean<List<BannerBean>>>() {
+            @Override
+            public void onResponse(Call<HttpResultBean<List<BannerBean>>> call, Response<HttpResultBean<List<BannerBean>>> response) {
+                textView.setText(response.body().getData().get(0).getTitle());
+            }
+
+            @Override
+            public void onFailure(Call<HttpResultBean<List<BannerBean>>> call, Throwable t) {
+
+            }
+        });
     }
 
 
