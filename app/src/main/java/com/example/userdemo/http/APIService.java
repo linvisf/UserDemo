@@ -18,6 +18,7 @@ public interface APIService {
     Call<HttpResultBean<List<BannerBean>>> getBannersData();
 
 
+
 //     本周最热 API
 //     *https://gank.io/api/v2/hot/<hot_type>/category/<category>/count/<count>
     @GET("hot/{hot_type}/category/{category}/count/{count}")
