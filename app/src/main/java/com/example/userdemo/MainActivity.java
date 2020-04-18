@@ -22,20 +22,20 @@ public class MainActivity extends AppCompatActivity {
 
     private final static String TAG = "MainActivity";
 
-    private TextView textView;
+//    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.textView);
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                loadData("Girl","Girl",1,10);
-                getBanner();
-            }
-        });
+//        textView = findViewById(R.id.textView);
+//        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                loadData("Girl","Girl",1,10);
+//                getBanner();
+//            }
+//        });
 
     }
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<HttpResultBean<List<BannerBean>>>() {
             @Override
             public void onResponse(Call<HttpResultBean<List<BannerBean>>> call, Response<HttpResultBean<List<BannerBean>>> response) {
-                textView.setText(response.body().getData().get(0).getTitle());
+//                textView.setText(response.body().getData().get(0).getTitle());
             }
 
             @Override
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     int stauts = response.body().getStatus();
                     Log.d(TAG, "stauts" + stauts);
                     Log.d(TAG, "url" + gankBean.getUrl());
-                    textView.setText(gankBean.getUrl());
+//                    textView.setText(gankBean.getUrl());
                 }
             }
 
