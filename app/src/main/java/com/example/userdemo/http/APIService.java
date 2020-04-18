@@ -17,17 +17,9 @@ public interface APIService {
     @GET("banners")
     Call<HttpResultBean<List<BannerBean>>> getBannersData();
 
-    /**
-     * 本周最热 API
-     * https://gank.io/api/v2/hot/<hot_type>/category/<category>/count/<count>
-     * 请求方式: GET
-     * 注:
-     *
-     * hot_type 可接受参数 views（浏览数） | likes（点赞数） | comments（评论数）❌
-     * category 可接受参数 Article | GanHuo | Girl
-     * count: [1, 20]
-     *
-     */
+
+//     本周最热 API
+//     *https://gank.io/api/v2/hot/<hot_type>/category/<category>/count/<count>
     @GET("hot/{hot_type}/category/{category}/count/{count}")
     Call<HttpResultBean<List<GankBean>>> getHotData(@Path("hot_type") String hot_type,
                                                     @Path("category") String category,
