@@ -35,10 +35,10 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <Button
-        android:id="@+id/btn_new"
+        android:id="@+id/btn_hot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="最新"
+        android:text="@string/text_hot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:id="@+id/btn_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="分类"
+        android:text="@string/text_category"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -58,7 +58,7 @@
         android:id="@+id/btn_mei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="妹纸"
+        android:text="@string/text_mei_zhi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -68,8 +68,18 @@
         android:id="@+id/btn_my"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我"
+        android:text="@string/text_my"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+    <FrameLayout
+        android:id="@+id/layout_constant"
+        android:layout_width="409dp"
+        android:layout_height="669dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
