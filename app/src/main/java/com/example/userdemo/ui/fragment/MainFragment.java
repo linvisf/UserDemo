@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.userdemo.R;
 
 /**
@@ -26,7 +28,11 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View mView =  inflater.inflate(R.layout.fragment_main, container, false);
+        ImageView imageView = mView.findViewById(R.id.iv_image);
+
+        Glide.with(this).load("https://ae01.alicdn.com/kf/U1dff91287db04ea9b073a580498d13711.jpg").into(imageView);
+        return mView;
     }
 
 }
