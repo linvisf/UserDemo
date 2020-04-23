@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MainFragment extends Fragment implements OnRefreshListener,  HttpCallBack {
+public class MainFragment extends Fragment implements OnRefreshListener, OnLoadMoreListener, HttpCallBack {
 
     private SwipeToLoadLayout swipeToLoadLayout;
     private RecyclerView recyclerView;
@@ -53,13 +54,14 @@ public class MainFragment extends Fragment implements OnRefreshListener,  HttpCa
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Log.e("MainFragment", "==========onActivityCreated========");
         onRefresh();
     }
 
     private void initView(View view){
         swipeToLoadLayout = view.findViewById(R.id.swipeToLoadLayout);
         recyclerView = view.findViewById(R.id.swipe_target);
-//        swipeToLoadLayout.setOnLoadMoreListener(this);
+        swipeToLoadLayout.setOnLoadMoreListener(this);
         swipeToLoadLayout.setOnRefreshListener(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -72,13 +74,13 @@ public class MainFragment extends Fragment implements OnRefreshListener,  HttpCa
     }
 
     private void getData() {
-        GankApi.getHotData("view", "GanHuo", Constants.COUNT, this);
+        GankApi.getHotData("views", "GanHuo", Constants.COUNT, this);
     }
 
-//    @Override
-//    public void onLoadMore() {
-//
-//    }
+    @Override
+    public void onLoadMore() {
+
+    }
 
     @Override
     public void onRefresh() {
@@ -93,6 +95,9 @@ public class MainFragment extends Fragment implements OnRefreshListener,  HttpCa
         commonAdapter.notifyDataSetChanged();
         if (swipeToLoadLayout.isRefreshing()) {
             swipeToLoadLayout.setRefreshing(false);
+        }
+        if (swipeToLoadLayout.isLoadingMore()) {
+            swipeToLoadLayout.setLoadingMore(false);
         }
     }
 
