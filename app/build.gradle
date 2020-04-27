@@ -45,5 +45,5 @@ dependencies {
 
     implementation 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    compile 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
+    implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
 }
