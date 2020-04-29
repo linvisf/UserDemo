@@ -26,7 +26,7 @@ public class CategoryFragment extends Fragment {
     private ViewPager viewPager;
 
     private String[] titles = {
-            Constants.flagAll,
+//            Constants.flagAll,
             Constants.flagAndroid,
             Constants.flagIOS,
             Constants.flagFlutter,
