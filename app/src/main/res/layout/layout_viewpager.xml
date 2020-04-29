@@ -22,3 +22,4 @@
     app:stl_defaultTabTextHorizontalPadding="16dp">
 
 </com.ogaclejapan.smarttablayout.SmartTabLayout>
+<!-- app:stl_defaultTabTextMinWidth="100dp" -->

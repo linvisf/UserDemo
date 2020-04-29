@@ -74,7 +74,6 @@ public class MeiZhiFragment extends Fragment implements OnRefreshListener, OnLoa
     private void initAdapter(List<GankBean> mList){
         meiZhiAdapter = new RecycleMeiZhiAdapter(getContext(), mList);
         recyclerView.setAdapter(meiZhiAdapter);
-
     }
 
 
